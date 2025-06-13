@@ -17,11 +17,12 @@
 from jinja2 import FileSystemLoader, Environment, Template
 import os
 from pathlib import Path
+from htmlToHeader import htmlToHeader
 
 def listFilesFromDir(directory):
     files = []
-    for file in os.listdir(directory):
-        if file.endswith(".j2"):
+    for file in os.listdir(directory, extension):
+        if file.endswith(extension):
             files.append(file)
     return files
 
@@ -57,3 +58,7 @@ if __name__ == "__main__":
     jinjaTemplates = loadTemplates("./Templates")
     renderedHtmls = renderTemplates(jinjaTemplates)
     publishHtmls(renderedHtmls)
+
+    htmls = listFilesFromDir("./Static", "html")
+    for html in htmls:
+        htmlToHeader("./Static" + html, "./Embed")
