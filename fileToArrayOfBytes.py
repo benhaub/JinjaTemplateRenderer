@@ -10,6 +10,8 @@ def createHeaderWithFileAsArrayOfBytes(file, outputDir):
     # Create the header file name
     headerName = Path(file).stem + '.hpp'
     headerPath = Path(outputDir) / headerName
+    arrayName = Path(file).stem.replace("-", "_")
+    arrayName = arrayName.replace(".", "")
     
     # Create the header content
     headerContent = f"""#ifndef __WEBAPP_PAGES_{Path(file).stem.upper()}_HPP__
@@ -18,7 +20,7 @@ def createHeaderWithFileAsArrayOfBytes(file, outputDir):
 #include <array>
 
 namespace WebAppPages {{
-    constexpr std::array<uint8_t, {len(bytes)}> {Path(file).stem} = {{
+    constexpr std::array<uint8_t, {len(bytes)}> {arrayName} = {{
         {', '.join(f'0x{b:02x}' for b in bytes)}
     }};
 }}
