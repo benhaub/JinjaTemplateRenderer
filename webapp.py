@@ -62,3 +62,7 @@ if __name__ == "__main__":
     htmls = listFilesFromDir("./Static", "html")
     for html in htmls:
         htmlToHeader("./Static" + html, "./Embed")
+
+    javascripts = listFilesFromDir("./Javascript", "html")
+    for javascript in javascripts:
+        htmlToHeader("./Javascript" + javascript, "./Embed")
