@@ -17,7 +17,7 @@
 from jinja2 import FileSystemLoader, Environment, Template
 import os
 from pathlib import Path
-from htmlToHeader import htmlToHeader
+from fileToArrayOfBytes import fileToArrayOfBytes
 
 def listFilesFromDir(directory):
     files = []
