@@ -63,6 +63,6 @@ if __name__ == "__main__":
     for html in htmls:
         fileToArrayOfBytes("./Static" + html, "./Embed")
 
-    javascripts = listFilesFromDir("./Javascript", "html")
+    javascripts = listFilesFromDir("./Static/Javascript", "html")
     for javascript in javascripts:
-        fileToArrayOfBytes("./Javascript" + javascript, "./Embed")
+        fileToArrayOfBytes("./Static/Javascript" + javascript, "./Embed")
