@@ -1,0 +1,23 @@
+{#############################################################################}
+{#Authour: Ben Haubrich                                                      #}
+{#Date: January 5th, 2025                                                    #}
+{#File: layout.j2                                                            #}
+{#Synopsis: Generic layout for other templates to inherit from               #}
+{#############################################################################}
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ webAppName }}</title>
+        {#If these paths are wrong and the files can not be found then the web pages will not load#}
+        {#Locally stored (vendored) since we may not always have an internet connection#}
+        <script src="Static/Javascript/htmx-1.9.12.min.js"></script>
+        {#_hyperscript for htmx#}
+        <script src="Static/Javascript/_hyperscript-0.9.14.min.js"></script>
+    </head>
+    <body hx-boost="true">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>
